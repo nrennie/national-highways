@@ -29,4 +29,4 @@ readr::read_csv("data/sites.csv") |>
   dplyr::filter(Description == "30361533") |> 
   dplyr::pull(Id)
 daily_7090 <- get_daily_reports(site = 7090, page_size = 2000)
-readr::write_csv(daily_7090, "data/daily_report_7090_26Jun2023.csv")
+readr::write_csv(daily_7090, "data/daily_report_7090_19Jun2023.csv")
