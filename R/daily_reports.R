@@ -9,8 +9,8 @@
 #' @param page_size. page size. Default 50.
 get_daily_reports <- function(
     site = 7090,
-    start_date = "26062023",
-    end_date = "02072023",
+    start_date = "19062023",
+    end_date = "25072023",
     page = 1,
     page_size = 1000) {
   url <- "http://webtris.nationalhighways.co.uk/api/v1.0"
@@ -28,5 +28,5 @@ readr::read_csv("data/sites.csv") |>
   tibble::as_tibble() |> 
   dplyr::filter(Description == "30361533") |> 
   dplyr::pull(Id)
-daily_7090 <- get_daily_reports(site = 7090)
+daily_7090 <- get_daily_reports(site = 7090, page_size = 2000)
 readr::write_csv(daily_7090, "data/daily_report_7090_26Jun2023.csv")
