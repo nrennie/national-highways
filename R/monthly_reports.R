@@ -25,7 +25,7 @@ get_monthly_reports <- function(
       SiteId, Year, Month, DayNumber, DayOfWeek, FlowValue, 
       LargeVehiclePercentage
     ) |> 
-    dplyr::mutate(across(c(Year, DayNumber, FlowValue, LargeVehiclePercentage), as.numeric))
+    dplyr::mutate(dplyr::across(c(Year, DayNumber, FlowValue, LargeVehiclePercentage), as.numeric))
   return(output)
 }
 
