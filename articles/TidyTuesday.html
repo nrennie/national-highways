@@ -66,7 +66,10 @@
 
     
     
+<p>The following code reproduces the data set that was submitted for <a href="https://github.com/rfordatascience/tidytuesday/issues/769" class="external-link">TidyTuesday</a>.</p>
+<p>Install the package from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>pak<span class="sc">::</span>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"nrennie/national-highways"</span>)</span></code></pre></div>
+<p>Load the package:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://nrennie.rbind.io/national-highways" class="external-link">national.highways</a></span><span class="op">)</span></span></code></pre></div>
 <p>Choose sensors sites from <a href="https://webtris.nationalhighways.co.uk/" class="external-link">webtris.nationalhighways.co.uk</a>
@@ -76,7 +79,7 @@ from York to Scarborough.</p>
 <code class="sourceCode R"><span><span class="va">sites_chosen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"30361466"</span>, <span class="st">"30361338"</span>, <span class="st">"30361451"</span>, <span class="st">"30361486"</span><span class="op">)</span></span></code></pre></div>
 <p>Pull sensor site data, and find ID for chosen sites:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sites</span> <span class="op">&lt;-</span> <span class="fu">get_sites</span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">sites</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sites.html">sites</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">sites_id</span> <span class="op">&lt;-</span> <span class="va">sites</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Description</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">sites_chosen</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -87,7 +90,7 @@ intervals per hour over 24 hours a day.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sites_data</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span></span>
 <span>  .x <span class="op">=</span> <span class="va">sites_id</span>,</span>
-<span>  .f <span class="op">=</span> <span class="op">~</span><span class="fu">get_daily_reports</span><span class="op">(</span></span>
+<span>  .f <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="../reference/daily_report.html">daily_report</a></span><span class="op">(</span></span>
 <span>    site <span class="op">=</span> <span class="va">.x</span>,</span>
 <span>    start_date <span class="op">=</span> <span class="st">"01052021"</span>,</span>
 <span>    end_date <span class="op">=</span> <span class="st">"31052021"</span>,</span>
