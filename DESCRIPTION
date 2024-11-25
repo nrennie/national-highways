@@ -13,6 +13,7 @@ Imports:
     dplyr,
     glue,
     jsonlite,
+    rlang,
     tibble,
     tidyr
 License: CC BY 4.0
