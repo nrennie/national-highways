@@ -8,3 +8,11 @@ Currently, National Highways directly monitor the speed and flow of roads using 
 * TMU sites (Traffic Monitoring Units) which are inductive loops.
 * TAME sites (Traffic Appraisal, Modelling and Economics) which are inductive loops.
 * TRADS Legacy sites.
+
+## Installation
+
+Install from GitHub:
+
+```r
+pak::pak::pkg_install("nrennie/national-highways")
+```

@@ -1,12 +1,21 @@
 Package: national.highways
-Title: What the Package Does (One Line, Title Case)
+Title: Access the National Highways API from R.
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: c(
+    person(given = "Nicola", family = "Rennie", role = c("aut", "cre", "cph"),
+    email = "nrennie35@gmail.com", comment = c(ORCID = "0000-0003-4797-557X")))
+Description: National Highways monitors roads through sensors and 
+  reports data on traffic flow. This package proveds access to the 
+  National Highways APi from R, allowing access to daily and monthly 
+  reports on traffic, locations of road sensors, and data about 
+  sensor types.
+Imports:
+    dplyr,
+    glue,
+    jsonlite,
+    tibble,
+    tidyr
+License: CC BY 4.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
