@@ -14,9 +14,15 @@ knitr::opts_chunk$set(
 )
 ```
 
+The following code reproduces the data set that was submitted for [TidyTuesday](https://github.com/rfordatascience/tidytuesday/issues/769).
+
+Install the package from GitHub:
+
 ```{r, eval=FALSE}
 pak::pak::pkg_install("nrennie/national-highways")
 ```
+
+Load the package:
 
 ```{r setup}
 library(national.highways)
@@ -31,7 +37,7 @@ sites_chosen <- c("30361466", "30361338", "30361451", "30361486")
 Pull sensor site data, and find ID for chosen sites:
 
 ```{r, eval=FALSE}
-sites <- get_sites()
+sites <- sites()
 sites_id <- sites |> 
   tibble::as_tibble() |> 
   dplyr::filter(Description %in% sites_chosen) |> 
@@ -43,7 +49,7 @@ Map over sites and extract daily report for each site for May 2021. Note that `p
 ```{r, eval=FALSE}
 sites_data <- purrr::map(
   .x = sites_id,
-  .f = ~get_daily_reports(
+  .f = ~daily_report(
     site = .x,
     start_date = "01052021",
     end_date = "31052021",
