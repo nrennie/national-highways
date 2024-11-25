@@ -1,4 +1,4 @@
-# Get sensor site data from API
+#' Get sensor site data from API
 #' @return Tibble of information about site locations
 #' @export
 sites <- function() {

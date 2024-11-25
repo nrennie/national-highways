@@ -1,4 +1,4 @@
-# Get sensor site type data from API
+#' Get sensor site type data from API
 #' @return Tibble of information about site types
 #' @export
 site_types <- function() {
