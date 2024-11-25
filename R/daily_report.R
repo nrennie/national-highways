@@ -3,7 +3,7 @@
 #' @param start_date character string for start date in ddmmyyyy format.
 #' @param end_date character string for end date in ddmmyyyy format.
 #' @param page page.
-#' @param page_size. page size. Default 50.
+#' @param page_size page size. Default 50.
 #' @importFrom rlang .data
 #' @return Tibble of information about traffic per day in 15 minute intervals.
 #' @export

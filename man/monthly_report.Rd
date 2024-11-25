@@ -15,7 +15,7 @@ monthly_report(site, start_date, end_date, page = 1, page_size = 50)
 
 \item{page}{Page. Default 1.}
 
-\item{page_size.}{Page size i.e. number of rows to return. Default 50.}
+\item{page_size}{Page size i.e. number of rows to return. Default 50.}
 }
 \value{
 Tibble of information about traffic per day.

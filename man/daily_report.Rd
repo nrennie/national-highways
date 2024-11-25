@@ -15,7 +15,7 @@ daily_report(site, start_date, end_date, page = 1, page_size = 1000)
 
 \item{page}{page.}
 
-\item{page_size.}{page size. Default 50.}
+\item{page_size}{page size. Default 50.}
 }
 \value{
 Tibble of information about traffic per day in 15 minute intervals.
