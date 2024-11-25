@@ -1,0 +1,75 @@
+---
+title: "TidyTuesday"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TidyTuesday}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, eval=FALSE}
+pak::pak::pkg_install("nrennie/national-highways")
+```
+
+```{r setup}
+library(national.highways)
+```
+
+Choose sensors sites from [webtris.nationalhighways.co.uk](https://webtris.nationalhighways.co.uk/) and store site name in vector. These sensors are on the A64 Eastbound from York to Scarborough.
+
+```{r, eval=FALSE}
+sites_chosen <- c("30361466", "30361338", "30361451", "30361486")
+```
+
+Pull sensor site data, and find ID for chosen sites:
+
+```{r, eval=FALSE}
+sites <- get_sites()
+sites_id <- sites |> 
+  tibble::as_tibble() |> 
+  dplyr::filter(Description %in% sites_chosen) |> 
+  dplyr::pull(Id)
+```
+
+Map over sites and extract daily report for each site for May 2021. Note that `page_size` is chosen to exceed 31 days, 4 intervals per hour over 24 hours a day.
+
+```{r, eval=FALSE}
+sites_data <- purrr::map(
+  .x = sites_id,
+  .f = ~get_daily_reports(
+    site = .x,
+    start_date = "01052021",
+    end_date = "31052021",
+    page_size = 3000
+  )
+)
+```
+
+Reformat the data into a single tibble:
+
+```{r, eval=FALSE}
+A64_traffic <- dplyr::bind_rows(
+  sites_data
+) |> 
+  dplyr::left_join(
+    sites, by = c("SiteId" = "Id")
+  ) |> 
+  # Description duplicate of Site Name
+  dplyr::select(
+    -c(Description)
+  ) |> 
+  # Replace characters which cause problems saving to CSV
+  dplyr::mutate(
+    Name = stringr::str_replace_all(Name, ";", "-")
+  )
+```
+
+
+
