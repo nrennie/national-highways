@@ -1,3 +1,7 @@
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/nrennie/national-highways/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nrennie/national-highways/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 # National Highways
 
 This repository pulls data from the [National Highways WebTRIS API](https://webtris.highwaysengland.co.uk/api/swagger/ui/index).
