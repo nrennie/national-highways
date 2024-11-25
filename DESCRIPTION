@@ -24,3 +24,6 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+Config/Needs/website: nrennie/nrenniepkgdown
+URL: https://nrennie.rbind.io/national-highways, https://github.com/nrennie/national-highways, http://nrennie.rbind.io/national-highways/
+BugReports: https://github.com/nrennie/national-highways/issues

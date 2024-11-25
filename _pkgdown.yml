@@ -1,0 +1,5 @@
+url: http://nrennie.rbind.io/national-highways/
+template:
+  package: nrenniepkgdown
+  bootstrap: 5
+
